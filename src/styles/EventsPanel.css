@@ -1,0 +1,17 @@
+.events-container {
+  padding: 2rem;
+}
+
+.events-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.event-card {
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  width: 300px;
+  border-radius: 6px;
+}

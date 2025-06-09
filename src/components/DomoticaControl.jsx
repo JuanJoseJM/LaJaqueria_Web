@@ -1,28 +1,32 @@
-import React, { useState } from "react";
-import axios from "../api/axiosConfig";
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const DomoticaControl = () => {
-  const [estado, setEstado] = useState("");
+  const [estado, setEstado] = useState(null);
+  const [mensaje, setMensaje] = useState('');
 
-  const manejarDispositivo = async (accion) => {
+  const API_URL = 'http://localhost:8080/api/domotica'; // Cambia si usas Azure o producción
+
+  const manejarControl = async (accion) => {
     try {
-      const respuesta = await axios.post("/api/domotica/control", {
-        dispositivo: "luz_sala",
-        accion: accion
-      });
-      setEstado(respuesta.data.mensaje);
+      const response = await axios.post(`${API_URL}/${accion}`);
+      setEstado(accion === 'encender' ? 'Encendido' : 'Apagado');
+      setMensaje(response.data.message || 'Acción ejecutada correctamente.');
     } catch (error) {
-      console.error("Error al enviar comando domótico:", error);
-      setEstado("Error en la comunicación con el sistema domótico.");
+      console.error('Error al enviar el comando:', error);
+      setMensaje('Error al contactar con el sistema domótico.');
     }
   };
 
   return (
-    <div className="domotica-panel">
+    <div style={{ padding: '2rem' }}>
       <h2>Control Domótico</h2>
-      <button onClick={() => manejarDispositivo("encender")}>Encender luz</button>
-      <button onClick={() => manejarDispositivo("apagar")}>Apagar luz</button>
-      <p>{estado}</p>
+      <p>Estado actual: <strong>{estado || 'Desconocido'}</strong></p>
+      <div style={{ marginTop: '1rem' }}>
+        <button onClick={() => manejarControl('encender')}>Encender dispositivo</button>
+        <button onClick={() => manejarControl('apagar')} style={{ marginLeft: '1rem' }}>Apagar dispositivo</button>
+      </div>
+      {mensaje && <p style={{ marginTop: '1rem', color: 'green' }}>{mensaje}</p>}
     </div>
   );
 };

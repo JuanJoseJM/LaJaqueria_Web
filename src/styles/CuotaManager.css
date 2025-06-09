@@ -1,0 +1,37 @@
+.cuota-manager {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.cuota-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.cuota-form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.cuota-form button {
+  padding: 0.6rem;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cuota-form button:hover {
+  background-color: #27662b;
+}
+
+.cuota-list li {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}

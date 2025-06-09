@@ -1,12 +1,14 @@
 import React from "react";
-import DomoticaControl from "../components/DomoticaControl";
+import AdminNavbar from "../components/AdminNavbar";
 
 const AdminPanel = () => {
   return (
     <div>
-      <h1>Panel de Administración</h1>
-      {/* Aquí otras funcionalidades del admin */}
-      <DomoticaControl />
+      <AdminNavbar />
+      <div style={{ padding: "1rem" }}>
+        <h1>Bienvenido al Panel de Administración</h1>
+        <p>Usa el menú para navegar por las opciones.</p>
+      </div>
     </div>
   );
 };

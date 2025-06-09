@@ -1,0 +1,92 @@
+.form-socio {
+  margin-bottom: 2rem;
+}
+
+.form-socio input {
+  margin: 0.3rem;
+  padding: 0.5rem;
+}
+
+.form-socio button {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  margin-left: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+}
+
+button {
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.usuarios-container {
+  padding: 20px;
+}
+
+.usuarios-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.usuarios-container th,
+.usuarios-container td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.usuarios-container h2 {
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
