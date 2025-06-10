@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# 🖥️ Panel Web – E-Management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El **Panel Web de E-Management** es una aplicación administrativa diseñada para gestionar las operaciones internas de un espacio de coworking. Esta interfaz está pensada para el uso exclusivo de los administradores del sistema.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🎯 Propósito general
 
-### `npm start`
+Desde esta plataforma web, los administradores pueden:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 👥 Gestionar usuarios (socios y administradores)
+- 📅 Crear y editar eventos
+- 💳 Consultar cuotas y pagos
+- 💡 Controlar dispositivos inteligentes del coworking (domótica)
+- 🔐 Gestionar accesos y roles
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Toda la información se sincroniza en tiempo real con la API REST central y es compartida con la aplicación móvil de los socios.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 👤 Manual para el usuario administrador
 
-### `npm run build`
+### 1. Iniciar sesión
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Accede al panel desde tu navegador.
+- Introduce tus credenciales de administrador.
+- Si los datos son correctos, accederás al panel principal.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Panel principal
 
-### `npm run eject`
+Desde el dashboard puedes acceder a los distintos módulos:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### 👥 Gestión de Usuarios
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Ver lista de socios registrados
+- Crear, editar o eliminar socios
+- Asignar roles (admin/socio)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### 📅 Eventos
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Crear nuevos eventos
+- Ver eventos existentes
+- Consultar socios inscritos
 
-## Learn More
+#### 💳 Cuotas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Revisar pagos registrados
+- Ver cuotas pendientes o completadas
+- Asociar cuotas a usuarios
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### 💡 Domótica
 
-### Code Splitting
+- Encender/apagar dispositivos del espacio
+- Controlar funciones como iluminación, puertas, etc.
+- Solo visible si tienes rol de **administrador**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+### 3. Cerrar sesión
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Puedes cerrar tu sesión desde el botón disponible en la esquina superior o en el menú de usuario.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🛠️ Requisitos técnicos
 
-### Advanced Configuration
+- Navegador web moderno (Chrome, Firefox, Edge, Safari)
+- Usuario registrado con rol de administrador
+- Conexión a internet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🔐 Seguridad
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Acceso restringido solo a administradores
+- Todas las operaciones requieren autenticación con token JWT
+- Acciones críticas (borrar, modificar) están protegidas
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📬 Soporte
+
+En caso de errores o necesidades especiales, contactar al desarrollador del sistema o al administrador principal del coworking.
