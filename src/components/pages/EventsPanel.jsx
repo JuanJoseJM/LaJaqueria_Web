@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import EventCard from '../components/EventCard';
-import '../styles/EventsPanel.css';
+import EventCard from './EventCard';
+import '../../styles/EventsPanel.css';
 
 const EventsPanel = () => {
   const [events, setEvents] = useState([]);
