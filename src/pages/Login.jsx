@@ -12,13 +12,13 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/login', {
+      const response = await api.post('/usuarios/login', {
         usuario: email,
         password: password
       });
 
-      const { accesscode, email: returnedEmail } = response.data;
-      localStorage.setItem('accesscode', accesscode);
+      const { token, email: returnedEmail } = response.data;
+      localStorage.setItem('access_token', token);
       localStorage.setItem('userEmail', returnedEmail);
 
       setErrorMsg('');
