@@ -1,18 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/AdminNavbar.css";
+import LogoutButton from "../components/LogoutButton";
+import "../styles/AdminNavbar.css"; // Si tienes estilos
 
+/**
+ * Barra de navegación para el administrador
+ */
 const AdminNavbar = () => {
   return (
     <nav className="admin-navbar">
       <h2>E-Management</h2>
-      <ul>
-        <li><Link to="/admin/socios">Socios</Link></li>
-        <li><Link to="/admin/cuotas">Cuotas</Link></li>
+      <ul className="nav-links">
+        <li><Link to="/admin/usuarios">Usuarios</Link></li>
         <li><Link to="/admin/eventos">Eventos</Link></li>
-        <li><Link to="/admin/domotica">Domótica</Link></li>
-        <li><Link to="/login">Cerrar sesión</Link></li>
+        <li><Link to="/admin/cuotas">Cuotas</Link></li>
+        <li><Link to="/admin/domotics">Domótica</Link></li>
       </ul>
+      <LogoutButton />
     </nav>
   );
 };

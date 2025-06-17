@@ -2,11 +2,19 @@ import React, { useState } from 'react';
 import api from '../api/axiosConfig';
 import '../styles/Domotics.css';
 
+/**
+ * Componente para controlar dispositivos domóticos (luces, puertas, etc.).
+ * Envía comandos al backend mediante peticiones POST autenticadas con token.
+ */
 const Domotics = () => {
   const [mensaje, setMensaje] = useState('');
   const [estado, setEstado] = useState('');
   const [error, setError] = useState(null);
 
+  /**
+   * Envía un comando domótico al backend.
+   * @param {string} accion - Acción a ejecutar (ej: "ENCENDER_LUZ").
+   */
   const enviarComando = async (accion) => {
     try {
       const response = await api.post('/domotica/comando', {

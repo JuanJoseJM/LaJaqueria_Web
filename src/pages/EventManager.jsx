@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../api/axiosConfig"; // ✅ Cliente con token incluido
 import "../styles/EventManager.css";
 
 const EventManager = () => {
   const [events, setEvents] = useState([]);
-  const [form, setForm] = useState({ nombre: "", fecha: "", descripcion: "" });
+  const [form, setForm] = useState({
+    nombre: "",
+    fecha: "",
+    descripcion: ""
+  });
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/eventos")
+    api.get("/api/eventos") // ✅ token se incluye automáticamente
       .then((res) => setEvents(res.data))
       .catch((err) => console.error("Error al cargar eventos:", err));
   }, []);
@@ -18,7 +22,7 @@ const EventManager = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8080/api/eventos", form)
+    api.post("/api/eventos", form) // ✅ token aquí también
       .then((res) => {
         setEvents([...events, res.data]);
         setForm({ nombre: "", fecha: "", descripcion: "" });
@@ -31,16 +35,34 @@ const EventManager = () => {
       <h2>Gestión de Eventos</h2>
 
       <form onSubmit={handleSubmit} className="event-form">
-        <input name="nombre" value={form.nombre} onChange={handleChange} placeholder="Nombre del evento" required />
-        <input name="fecha" value={form.fecha} onChange={handleChange} type="date" required />
-        <textarea name="descripcion" value={form.descripcion} onChange={handleChange} placeholder="Descripción" />
+        <input
+          name="nombre"
+          value={form.nombre}
+          onChange={handleChange}
+          placeholder="Nombre del evento"
+          required
+        />
+        <input
+          name="fecha"
+          value={form.fecha}
+          onChange={handleChange}
+          type="date"
+          required
+        />
+        <textarea
+          name="descripcion"
+          value={form.descripcion}
+          onChange={handleChange}
+          placeholder="Descripción"
+        />
         <button type="submit">Crear evento</button>
       </form>
 
       <ul className="event-list">
         {events.map((event) => (
           <li key={event.id_evento}>
-            <strong>{event.nombre}</strong> - {event.fecha}<br />
+            <strong>{event.nombre}</strong> - {event.fecha}
+            <br />
             {event.descripcion}
           </li>
         ))}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../api/axiosConfig";
 import "../styles/CuotaManager.css";
 
 const CuotaManager = () => {
@@ -10,8 +10,9 @@ const CuotaManager = () => {
     cantidad: "",
   });
 
+  // Cargar cuotas protegidas
   useEffect(() => {
-    axios.get("http://localhost:8080/api/cuotas")
+    api.get("/api/cuotas")
       .then((res) => setCuotas(res.data))
       .catch((err) => console.error("Error al cargar cuotas:", err));
   }, []);
@@ -20,9 +21,10 @@ const CuotaManager = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // Enviar cuota con token incluido
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8080/api/cuotas", form)
+    api.post("/api/cuotas", form)
       .then((res) => {
         setCuotas([...cuotas, res.data]);
         setForm({ idSocio: "", fechaPago: "", cantidad: "" });
