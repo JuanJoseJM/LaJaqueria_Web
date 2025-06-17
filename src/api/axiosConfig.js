@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 const api = axios.create({
+
+
+  //baseURL: 'https://lajaqueria-api-jmfd-ase2hebwf0azephw.westeurope-01.azurewebsites.net',
   baseURL: 'http://localhost:8080',
 });
 
