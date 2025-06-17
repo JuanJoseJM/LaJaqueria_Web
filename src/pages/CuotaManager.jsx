@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../../styles/CuotaManager.css";
+import "../styles/CuotaManager.css";
 
 const CuotaManager = () => {
   const [cuotas, setCuotas] = useState([]);

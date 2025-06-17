@@ -1,12 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./components/pages/Login";
-import AdminPanel from "./components/pages/AdminPanel";
-import EventsPanel from "./components/pages/EventsPanel";
-import Domotics from "./components/pages/Domotics";
-import Usuarios from "./components/pages/Usuarios";
-import EventManager from "./components/pages/EventManager";
-import CuotaManager from "./components/pages/CuotaManager";
+import Login from "./pages/Login";
+import AdminNavbar from "./pages/AdminNavbar";
+import AdminPanel from "./pages/AdminPanel";
+//import Users from "./pages/Users";
+//import Payments from "./pages/Payments";
+//import Events from "./pages/Events";
+import EventCard from "./pages/EventCard";
+import EventsPanel from "./pages/EventsPanel";
+import Domotics from "./pages/Domotics";
+import Usuarios from "./pages/Usuarios";
+import CreateEvent from "./pages/CreateEvent";
+import EventManager from "./pages/EventManager";
+import CuotaManager from "./pages/CuotaManager";
 
 
 function App() {

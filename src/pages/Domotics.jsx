@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import api from '../../api/axiosConfig';
-import '../../styles/Domotics.css';
+import api from '../api/axiosConfig';
+import '../styles/Domotics.css';
 
 const Domotics = () => {
   const [mensaje, setMensaje] = useState('');

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../../api/axiosConfig';
-import '../../styles/Login.css';
+import api from '../api/axiosConfig';
+import '../styles/Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +12,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/usuarios/login', {
+      const response = await api.post('/login', {
         usuario: email,
         password: password
       });
