@@ -17,8 +17,8 @@ const Login = () => {
         password: password
       });
 
-      const { token, email: returnedEmail } = response.data;
-      localStorage.setItem('access_token', token);
+      const { accesscode, email: returnedEmail } = response.data;
+      localStorage.setItem('access_token', accesscode);
       localStorage.setItem('userEmail', returnedEmail);
 
       setErrorMsg('');
