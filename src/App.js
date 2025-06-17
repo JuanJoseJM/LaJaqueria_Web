@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
 
 import Login from "./pages/Login";
 import AdminNavbar from "./pages/AdminNavbar";
@@ -23,19 +24,19 @@ function App() {
         {/* Redirección raíz al login */}
         <Route path="/" element={<Navigate to="/login" replace />} />
 
-        {/*Página de login usando Login.jsx */}
+        {/* Página pública de login */}
         <Route path="/login" element={<Login />} />
 
-        {/*Paneles del administrador */}
-        <Route path="/admin" element={<AdminPanel />} />
-        <Route path="/admin/domotics" element={<Domotics />} />
-        <Route path="/admin/usuarios" element={<Usuarios />} />
-        <Route path="/admin/eventos" element={<EventManager />} />
-        <Route path="/admin/cuotas" element={<CuotaManager />} />
+        {/* Paneles protegidos (requieren login) */}
+        <Route path="/admin" element={<PrivateRoute><AdminPanel /></PrivateRoute>} />
+        <Route path="/admin/domotics" element={<PrivateRoute><Domotics /></PrivateRoute>} />
+        <Route path="/admin/usuarios" element={<PrivateRoute><Usuarios /></PrivateRoute>} />
+        <Route path="/admin/eventos" element={<PrivateRoute><EventManager /></PrivateRoute>} />
+        <Route path="/admin/cuotas" element={<PrivateRoute><CuotaManager /></PrivateRoute>} />
 
-        {/*Gestión de eventos */}
-        <Route path="/eventos" element={<EventsPanel />} />
-        <Route path="/eventos/crear" element={<CreateEvent />} />
+        {/* Eventos generales (pueden ser públicos o protegidos si quieres) */}
+        <Route path="/eventos" element={<PrivateRoute><EventsPanel /></PrivateRoute>} />
+        <Route path="/eventos/crear" element={<PrivateRoute><CreateEvent /></PrivateRoute>} />
       </Routes>
     </Router>
   );

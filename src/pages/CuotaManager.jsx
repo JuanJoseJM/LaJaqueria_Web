@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import api from "../api/axiosConfig";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 import "../styles/CuotaManager.css";
 
+/**
+ * Gestión de cuotas para administradores.
+ * Incluye formulario de registro y exportación a PDF.
+ */
 const CuotaManager = () => {
   const [cuotas, setCuotas] = useState([]);
   const [form, setForm] = useState({
@@ -10,7 +16,6 @@ const CuotaManager = () => {
     cantidad: "",
   });
 
-  // Cargar cuotas protegidas
   useEffect(() => {
     api.get("/api/cuotas")
       .then((res) => setCuotas(res.data))
@@ -21,7 +26,6 @@ const CuotaManager = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Enviar cuota con token incluido
   const handleSubmit = (e) => {
     e.preventDefault();
     api.post("/api/cuotas", form)
@@ -30,6 +34,26 @@ const CuotaManager = () => {
         setForm({ idSocio: "", fechaPago: "", cantidad: "" });
       })
       .catch((err) => console.error("Error al crear cuota:", err));
+  };
+
+  /**
+   * Exporta la lista de cuotas como archivo PDF.
+   */
+  const exportarPDF = () => {
+    const doc = new jsPDF();
+    doc.text("Listado de Cuotas", 14, 10);
+
+    const tabla = cuotas.map(c => [
+      c.idSocio, c.fechaPago, `${c.cantidad} €`
+    ]);
+
+    doc.autoTable({
+      head: [["ID Socio", "Fecha de Pago", "Cantidad"]],
+      body: tabla,
+      startY: 20
+    });
+
+    doc.save("cuotas.pdf");
   };
 
   return (
@@ -61,6 +85,10 @@ const CuotaManager = () => {
         />
         <button type="submit">Registrar cuota</button>
       </form>
+
+      <button onClick={exportarPDF} style={{ margin: "1rem 0" }}>
+        Exportar PDF
+      </button>
 
       <ul className="cuota-list">
         {cuotas.map((cuota, index) => (
