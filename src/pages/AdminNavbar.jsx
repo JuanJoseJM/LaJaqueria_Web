@@ -11,11 +11,9 @@ const AdminNavbar = () => {
     <nav className="admin-navbar">
       <h2>E-Management</h2>
       <ul className="nav-links">
-        <li><Link to="/admin">Dashboard</Link></li>
         <li><Link to="/admin/usuarios">Usuarios</Link></li>
-        <li><Link to="/admin/eventos">Eventos</Link></li>
+        <li><Link to="/admin/eventos">Crear Eventos</Link></li>
         <li><Link to="/eventos">Lista Eventos</Link></li>
-        <li><Link to="/eventos/crear">Crear Evento</Link></li>
         <li><Link to="/admin/cuotas">Cuotas</Link></li>
         <li><Link to="/admin/domotics">Domótica</Link></li>
       </ul>
